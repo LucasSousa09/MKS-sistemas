@@ -4,7 +4,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Cart } from "@/components/Cart";
 
-import { HomeContainer, MainContainer } from "./styles";
+import { HomeContainer, MainContainer } from "../styles/styles";
 
 import { ProductsContainer } from "@/components/ProductsContainer";
 
