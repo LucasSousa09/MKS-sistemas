@@ -3,8 +3,8 @@ import styled from 'styled-components'
 export const ProductCardContainer = styled.div`
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 
-    align-items: center;
     max-width: 218px;
 
     border-radius: 8px;
@@ -15,11 +15,24 @@ export const ProductCardContainer = styled.div`
     background-color: ${(props) => props.theme['white']};
 
     overflow: hidden;
+`
+
+export const ProductInfoContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+        object-fit: contain;
+    }
 
     div{
         display: flex;
         align-items: center;
-        gap: 24px;
+        justify-content: space-between;
+
+        width: 100%;
+        height: 38px;
 
         margin-top: 14px;
         padding: 0 12px 0 14px;
@@ -27,11 +40,19 @@ export const ProductCardContainer = styled.div`
 `
 
 export const ProductTitle = styled.span`
-
+    text-align: start;
     color: ${(props) => props.theme['gray-900']};
     
     line-height: 19px;
-    max-width: 108px;
+
+    max-width: 115px;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    
+    overflow: hidden;
+    text-overflow: ellipsis;
 `
 
 export const ProductsPrice = styled.strong`
@@ -51,7 +72,14 @@ export const ProductDescription = styled.p`
     line-height: 12px;
     padding: 0 12px 0 14px;
 
-    color: ${(props) => props.theme['gray-900']}
+    color: ${(props) => props.theme['gray-900']};
+
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    
+    overflow: hidden;
+    text-overflow: ellipsis;
 
 `
 export const BuyButton = styled.button`

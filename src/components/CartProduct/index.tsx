@@ -4,26 +4,45 @@ import { CartProductContainer, CloseButton, QuantityContainer } from './styles'
 
 import closeImg from '../../assets/close.svg'
 import appleWatchImg from '../../assets/apple-watch.png'
+import { useContext } from 'react'
+import { CartContext } from '@/contexts/CartContextProvider'
 
-export function CartProduct(){
+interface CartProduct{
+    id: number
+    name: string 
+    price: number 
+    quantity: number 
+    photo: string
+}
+
+export function CartProduct(props: CartProduct){
+    const { removeFromCart, updateCart, decreaseOne } = useContext(CartContext)
+
     return (
         <CartProductContainer>
-            <CloseButton>
+            <CloseButton onClick={() => removeFromCart(props.id)}>
                 <Image src={closeImg} alt='' width={18} height={18} />
             </CloseButton>
-            <Image src={appleWatchImg.src} alt='' height={57} width={46} />
-            <span>Apple Watch Series 4 GPS</span>
+            <Image src={props.photo} alt='' height={57} width={46} />
+            <span>{props.name}</span>
             
             <QuantityContainer>
                 <span>Qtd:</span>
                 <div>
-                    <button>-</button>
-                    <span>1</span>
-                    <button>+</button>
+                    <button onClick={() => decreaseOne(props.id)}>-</button>
+                    <span>{props.quantity}</span>
+                    <button onClick={() => updateCart({id: props.id})}>+</button>
                 </div>
             </QuantityContainer>
             
-            <strong>R$399</strong>
+            <strong>
+                {                        
+                    Intl.NumberFormat('pt-BR', {
+                        style: 'currency',
+                        currency: 'BRL',
+                        }).format(props.price * props.quantity).split(',')[0]
+                }
+            </strong>
         </CartProductContainer>
     )
 }

@@ -16,10 +16,15 @@ export const CartProductContainer = styled.div`
 
     background-color: ${(props) => props.theme['white']};
 
+    > img {
+        object-fit: contain;
+    }
+
     > span {
         font-size: 13px;
         line-height: 17px;
         
+        min-width: 113px;
         max-width: 113px;
         margin-left: 21px;
 
@@ -27,7 +32,7 @@ export const CartProductContainer = styled.div`
     }
 
     > strong {
-        margin-left: 40px;
+        margin-left: auto;
         
         font-size: 14px;
         font-weight: 700;
