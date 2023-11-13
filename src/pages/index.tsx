@@ -23,7 +23,7 @@ interface HomeProps {
 }
 
 
-export default function Home({products}: HomeProps) {
+export default function Home() {
   return (
     <HomeContainer>
       <Cart />
