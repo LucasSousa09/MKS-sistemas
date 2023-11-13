@@ -1,4 +1,3 @@
-import { ReactElement } from 'react'
 import styled from 'styled-components'
 
 interface CartContainerProps{
@@ -24,6 +23,10 @@ export const CartContainer = styled.div<CartContainerProps>`
     transition:  .4s ease;
 
     z-index: 9999;
+
+    @media (max-width: ${(props) => props.theme['mobile-size']}){
+        width: 330px;
+    }
 `
 
 export const HeaderContainer = styled.div`
@@ -51,16 +54,32 @@ export const HeaderContainer = styled.div`
         background: transparent;
         border: 0;
     }
+
+    @media (max-width: ${(props) => props.theme['mobile-size']}){
+        padding: 25px 15px 0 32px;
+        
+        button {
+            margin-top: 1px;
+
+            height: 45px;
+            width: 45px;
+
+            img {
+                height: 45px;
+                width: 45px;
+            }
+        }
+    }
 `
 
 export const CartStatusContainer = styled.div`
     display: flex;
     flex-direction: column;
-
-    height: calc(100% - 102px);
-
     align-items: center;
     justify-content: space-between;
+
+    //102 is the Header height
+    height: calc(100% - 102px);
 
     > div{
         width: 100%;
@@ -68,6 +87,18 @@ export const CartStatusContainer = styled.div`
 
         max-height: calc(100% - 184px);
         overflow-y: auto;
+        overflow-x: hidden;
+
+        >span{
+            color: ${(props) => props.theme['white']}
+        }
+    }
+
+    @media (max-width: ${(props) => props.theme['mobile-size']}){
+        > div{
+            padding: 26px 46px 0 34px;
+        }
+        height: calc(100% - 91px);
     }
 `
 
@@ -93,6 +124,8 @@ export const CartFooterContainer = styled.footer`
     button {
         border: 0;
 
+        font-family: inherit;
+
         width: 100%;
         padding: 41px 0;
 
@@ -104,4 +137,16 @@ export const CartFooterContainer = styled.footer`
         color: ${(props) => props.theme['white']};
         background-color: ${(props) => props.theme['black']};
     }
+
+    @media (max-width: ${(props) => props.theme['mobile-size']}){
+        div {
+            padding: 0 43px 38px 32px;
+        }
+
+        button {
+            padding: 26px 0;
+            font-size: 20px;
+        }
+    }
+    
 `

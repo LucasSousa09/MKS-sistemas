@@ -18,4 +18,18 @@ export const CartButtonContainer = styled.button`
         font-size: 18px;
         font-weight: 700;
     }
+
+    @media (max-width: ${(props) => props.theme['mobile-size']}){
+        gap: 10px;
+        padding: 6px 14px 6px 9px;
+
+        span {
+            font-size: 12px;
+        };
+
+        img{
+            max-width: 11px;
+            max-height: 10px;
+        }
+    }
 `

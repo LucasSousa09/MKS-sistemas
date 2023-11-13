@@ -38,7 +38,7 @@ export function ProductCard({id, name, description, price, photo}: ProductsCardP
                         Intl.NumberFormat('pt-BR', {
                             style: 'currency',
                             currency: 'BRL',
-                            }).format(price).split(',')[0]
+                            }).format(price).split(',')[0].replace(/\s/g,'')
                         }
                     </ProductsPrice>
                 </div>

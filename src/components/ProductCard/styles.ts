@@ -15,6 +15,10 @@ export const ProductCardContainer = styled.div`
     background-color: ${(props) => props.theme['white']};
 
     overflow: hidden;
+
+    @media (max-width: ${(props) => props.theme['mobile-size']}){
+        max-width: 251px;
+    }
 `
 
 export const ProductInfoContainer = styled.div`
@@ -36,6 +40,16 @@ export const ProductInfoContainer = styled.div`
 
         margin-top: 14px;
         padding: 0 12px 0 14px;
+    }
+
+    @media (max-width: ${(props) => props.theme['mobile-size']}){
+        img {
+            height: 160px;
+        }
+
+        div {
+            padding: 0 13px 0 16px
+        }
     }
 `
 
@@ -81,6 +95,10 @@ export const ProductDescription = styled.p`
     overflow: hidden;
     text-overflow: ellipsis;
 
+    @media (max-width: ${(props) => props.theme['mobile-size']}){
+        margin-top: 14px;
+    }
+
 `
 export const BuyButton = styled.button`
     display: flex;
@@ -102,4 +120,8 @@ export const BuyButton = styled.button`
     background-color: ${(props) => props.theme['blue']};
 
     border: 0;
+
+    @media (max-width: ${(props) => props.theme['mobile-size']}){
+        margin-top: 14px;
+    }
 `

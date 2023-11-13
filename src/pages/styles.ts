@@ -21,13 +21,16 @@ export const MainContainer = styled.div`
     height: 100%;
 
     background-color: ${(props) => props.theme['gray-50']};
+
+    @media (max-width: ${(props) => props.theme['tablet-sizeB']}){
+        align-items: flex-start;
+
+        overflow-y: auto;
+        padding-bottom: 50px;
+    }
+
+    @media (max-width: ${(props) => props.theme['mobile-size']}){
+        align-items: flex-start;
+    }
 `
 
-export const ProductsContainer = styled.main`
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    column-gap: 22px;
-    row-gap: 31px;
-
-    margin-top: -42px;
-`

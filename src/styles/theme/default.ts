@@ -8,4 +8,8 @@ export const defaultTheme = {
     'gray-300': '#BFBFBF',
     'gray-800': '#373737',
     'gray-900': '#2C2C2C',
+
+    'mobile-size': '470px',
+    'tablet-sizeB': '940px',
+    'tablet-sizeS': '712px'
 }

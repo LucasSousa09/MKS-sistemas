@@ -1,16 +1,8 @@
-import { Dispatch, SetStateAction } from "react";
-
 import { CartButton } from "../CartButton"
 
 import { HeaderContainer, LogoContainer } from "./styles";
 
-
-
-interface HeaderProps {
-    openCart:  Dispatch<SetStateAction<boolean>>
-}
-
-export function Header({openCart}: HeaderProps){
+export function Header(){
     return (
         <HeaderContainer>
             <LogoContainer>
@@ -18,7 +10,7 @@ export function Header({openCart}: HeaderProps){
                 <span>Sistemas</span>
             </LogoContainer>
 
-        <CartButton openCart={openCart}/>
+        <CartButton />
         </HeaderContainer>
     )
 }

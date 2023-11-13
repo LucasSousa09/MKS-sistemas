@@ -38,6 +38,51 @@ export const CartProductContainer = styled.div`
         font-weight: 700;
         line-height: 17px;
     }
+
+    @media (max-width: ${(props) => props.theme['mobile-size']}){
+        display: grid;
+
+        width: 250px;
+
+        padding: 22px 23px 21px 16px;
+
+        grid-template-areas:
+            'img img'
+            'name name'
+            'qtd price';
+
+        > img {
+            grid-area: img;
+
+            height: 100px;
+            width: 100%;
+        }
+
+        > span{
+            grid-area: name;
+
+            font-size: 16px;
+            text-align: center;
+
+            margin-top: 14px;
+
+            max-width: 100%;
+        }
+
+        > strong {
+            grid-area: price;
+            
+            margin-top: 10px;
+            padding: 9px 17px;
+
+            font-size: 15px;
+
+            border-radius: 5px;
+
+            color: ${(props) => props.theme['white']};
+            background-color: ${(props) => props.theme['gray-800']};
+        }
+    }
 `
 
 export const QuantityContainer = styled.div`
@@ -89,6 +134,36 @@ export const QuantityContainer = styled.div`
             border-right: 1px solid ${(props) => props.theme['gray-300']};
         }
     }
+
+    @media (max-width: ${(props) => props.theme['mobile-size']}){
+        grid-area: qtd;
+
+        width: fit-content;
+        margin-top: 11px;
+        margin-left: 0;
+
+        > span {
+            display: none
+        }
+
+        div{
+            height: 34px;
+
+            span {
+                font-size: 22px;
+
+                height: 26px;
+                width: 32px;
+            }
+
+            button {
+                width: 33px;
+                height: 34px;
+    
+                font-size: 22px;
+            }
+        }
+    }
 `
 
 export const CloseButton = styled.button`
@@ -101,4 +176,20 @@ export const CloseButton = styled.button`
     
     border: 0;
     background-color: transparent;
+
+    @media (max-width: ${(props) => props.theme['mobile-size']}){
+        top: 0px;
+        right: 0px;
+
+        width: 45px;
+        height: 45px;
+    
+        img{
+            width: 45px;
+            height: 45px;
+            
+            filter: invert(100%);
+            -webkit-filter: invert(100%); 
+        }
+    }
 `

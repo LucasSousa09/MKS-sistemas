@@ -3,7 +3,6 @@ import Image from 'next/image'
 import { CartProductContainer, CloseButton, QuantityContainer } from './styles'
 
 import closeImg from '../../assets/close.svg'
-import appleWatchImg from '../../assets/apple-watch.png'
 import { useContext } from 'react'
 import { CartContext } from '@/contexts/CartContextProvider'
 
@@ -40,7 +39,7 @@ export function CartProduct(props: CartProduct){
                     Intl.NumberFormat('pt-BR', {
                         style: 'currency',
                         currency: 'BRL',
-                        }).format(props.price * props.quantity).split(',')[0]
+                        }).format(props.price * props.quantity).split(',')[0].replace(/\s/g,'')
                 }
             </strong>
         </CartProductContainer>
