@@ -42,7 +42,7 @@ export function Cart(){
                                Intl.NumberFormat('pt-BR', {
                                 style: 'currency',
                                 currency: 'BRL',
-                                }).format(cart.reduce((acc, cur) => acc  + cur.price, 0)).split(',')[0].replace(/\s/g,'') 
+                                }).format(cart.reduce((acc, cur) => acc  + Number(cur.price * cur.quantity), 0)).split(',')[0].replace(/\s/g,'') 
                             }
                         </strong>
                     </div>

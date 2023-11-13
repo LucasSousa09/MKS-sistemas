@@ -1,5 +1,3 @@
-import 'react-loading-skeleton/dist/skeleton.css'
-
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Cart } from "@/components/Cart";

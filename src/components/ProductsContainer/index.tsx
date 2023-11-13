@@ -1,8 +1,14 @@
 import { useQuery } from 'react-query'
-import {Container} from './styles'
-import { api } from '@/pages/api/axios'
+
 import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
+
+import { api } from '@/pages/api/axios'
+
 import { ProductCard } from '../ProductCard'
+
+import {Container} from './styles'
+
 
 interface IProduct {
     id: number,
@@ -23,7 +29,7 @@ export function ProductsContainer(){
     return (
         <Container>
         {
-          isLoading ? skeletonArr.map(skeleton => <Skeleton />) :
+          isLoading ? skeletonArr.map(skeleton => <Skeleton height={285} width={218} />) :
           data?.data.products.map((product: IProduct) => <ProductCard 
                                     key={product.id}
                                     id={product.id}

@@ -37,6 +37,7 @@ export function CartContextProvider({children}: CartContextProviderProps){
 
     function updateCart({id, name, photo, price}: UpdateCartProps) {
         const hasProduct = cart.find( cartItem => cartItem.id === id)
+
         
         if(hasProduct === undefined){
             if(name !== undefined && photo !== undefined && id !== undefined && price !== undefined){
@@ -44,11 +45,12 @@ export function CartContextProvider({children}: CartContextProviderProps){
                 return
             }
         }
-
+        
         setCart((state) => {
             return state.map((item) => {
+                console.log(item.id, id)
             if (item.id === id) {
-                return { ...item, quantity: item.quantity++  }
+                return { ...item, quantity: item.quantity++}
             }
             return item
             })
