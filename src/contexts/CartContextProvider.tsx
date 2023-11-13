@@ -46,9 +46,9 @@ export function CartContextProvider({children}: CartContextProviderProps){
             }
         }
         
+        console.log(cart)
         setCart((state) => {
             return state.map((item) => {
-                console.log(item.id, id)
             if (item.id === id) {
                 return { ...item, quantity: item.quantity++}
             }
