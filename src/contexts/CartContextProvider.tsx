@@ -46,22 +46,23 @@ export function CartContextProvider({children}: CartContextProviderProps){
             }
         }
         
-        console.log(cart)
+        
         setCart((state) => {
             return state.map((item) => {
             if (item.id === id) {
-                return { ...item, quantity: item.quantity++}
+                return { ...item, quantity: item.quantity + 1}
             }
-            return item
+                return item
             })
         })
+        
     }
 
     function decreaseOne(id: number){
         setCart((state) => {
             return state.map((item) => {
             if (item.id === id && item.quantity > 1) {
-                return { ...item, quantity: item.quantity--  }
+                return { ...item, quantity: item.quantity - 1}
             }
             return item
             })
