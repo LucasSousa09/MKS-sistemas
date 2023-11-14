@@ -12,10 +12,10 @@ export function Cart(){
     const { cart, openCart, setOpenCart} = useContext(CartContext)
 
     return (
-        <CartContainer showCart={openCart}>
+        <CartContainer showcart={openCart}>
             <HeaderContainer>
                 <strong>Carrinho de compras</strong>
-                <button onClick={() => setOpenCart(false)}>
+                <button title='closeCartButton' onClick={() => setOpenCart('false')}>
                     <Image src={closeImg} alt="Um Circulo Preto com um X dentro" height={38} width={38}/>
                 </button>
             </HeaderContainer>

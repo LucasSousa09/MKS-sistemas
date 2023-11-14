@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 interface CartContainerProps{
-    showCart: boolean
+    showcart: string
 }
 
 export const CartContainer = styled.div<CartContainerProps>`
@@ -19,7 +19,7 @@ export const CartContainer = styled.div<CartContainerProps>`
 
     background-color: ${(props) => props.theme['blue']};
 
-    transform: translateX(${(props) => props.showCart ? 0 : 486}px);
+    transform: translateX(${(props) => props.showcart === 'true' ? 0 : 486}px);
     transition:  .4s ease;
 
     z-index: 9999;

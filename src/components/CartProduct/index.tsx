@@ -19,7 +19,7 @@ export function CartProduct(props: CartProduct){
 
     return (
         <CartProductContainer>
-            <CloseButton onClick={() => removeFromCart(props.id)}>
+            <CloseButton title='closeButton' onClick={() => removeFromCart(props.id)}>
                 <Image src={closeImg} alt='' width={18} height={18} />
             </CloseButton>
             <Image src={props.photo} alt='' height={57} width={46} />
@@ -28,9 +28,9 @@ export function CartProduct(props: CartProduct){
             <QuantityContainer>
                 <span>Qtd:</span>
                 <div>
-                    <button onClick={() => decreaseOne(props.id)}>-</button>
+                    <button id='decreaseButton' onClick={() => decreaseOne(props.id)}>-</button>
                     <span>{props.quantity}</span>
-                    <button onClick={() => updateCart({id: props.id})}>+</button>
+                    <button id='increaseButton' onClick={() => updateCart({id: props.id})}>+</button>
                 </div>
             </QuantityContainer>
             

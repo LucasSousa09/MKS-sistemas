@@ -23,15 +23,17 @@ export function ProductsContainer(){
     return (
         <Container>
         {
-          isLoading ? skeletonArr.map(skeleton => <Skeleton key={skeleton} height={285} width={218} />) :
-          data?.data.products.map((product: IProduct) => <ProductCard 
+          isLoading ? skeletonArr.map(skeleton => <Skeleton key={skeleton}  height={285} width={218} />) :
+          status === 'success' ? (data?.data.products.map((product: IProduct) => <ProductCard 
                                     key={product.id}
                                     id={product.id}
                                     name={product.name} 
                                     description={product.description}
                                     photo={product.photo}
                                     price={product.price}
-                                    />)
+                                    />)) :
+          status === 'error' && <h1>Infelizmente não foi possível carregar os Produtos</h1>
+
         }
       </Container>        
     )

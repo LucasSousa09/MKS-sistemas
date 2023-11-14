@@ -1,16 +1,22 @@
 import { fireEvent, render, screen } from '@testing-library/react'
-import { Header } from '../Header/index'
+import { Cart } from '../Cart/index'
 import '@testing-library/jest-dom'
 
 import React, { useContext as useStateMock } from 'react'
 import { CartContextProvider } from '@/contexts/CartContextProvider'
 
-describe("Header", () => {
+const wrapper = ({children}: any) => (
+    <CartContextProvider>
+        {children}
+    </CartContextProvider>
+)
+
+describe("Cart", () => {
     it("should render correctly", () => {
-        render(<Header />)
-        expect(screen.getByText("MKS")).toBeInTheDocument()
-        expect(screen.getByText("Sistemas")).toBeInTheDocument()
-        expect(screen.getByRole("button")).toBeInTheDocument()
+        render(<Cart/>, {wrapper})
+        expect(screen.getByText("Carrinho de compras")).toBeInTheDocument()
+        expect(screen.getByText("Total:")).toBeInTheDocument()
+        expect(screen.getByText("Finalizar Compra")).toBeInTheDocument()
     })
     
     it('should call the openCart funtion on click', () => {
@@ -18,15 +24,11 @@ describe("Header", () => {
         const useStateMock: any = (useState: any) => [useState, setStateMock]
         jest.spyOn(React, 'useState').mockImplementation(useStateMock)
 
-        render(
-            <CartContextProvider>
-                <Header />
-            </CartContextProvider>
-        )
+        render(<Cart/>, {wrapper})
 
-        const button = screen.getByRole("button")
+        const button = screen.getByTitle("closeCartButton")
         fireEvent.click(button)
 
-        expect(setStateMock).toHaveBeenCalledWith('true')
+        expect(setStateMock).toHaveBeenCalledWith('false')
     })
 })

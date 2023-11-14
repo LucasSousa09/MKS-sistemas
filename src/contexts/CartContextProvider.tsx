@@ -18,8 +18,8 @@ interface UpdateCartProps {
 interface CartContextProps{
     cart: ICartItem[]
     setCart: Dispatch<SetStateAction<ICartItem[]>>
-    openCart: boolean
-    setOpenCart: Dispatch<SetStateAction<boolean>>
+    openCart: string
+    setOpenCart: Dispatch<SetStateAction<string>>
     updateCart: (props: UpdateCartProps) => void
     removeFromCart: (id: number) => void
     decreaseOne: (id: number) => void
@@ -33,7 +33,7 @@ export const CartContext = createContext({} as CartContextProps)
 
 export function CartContextProvider({children}: CartContextProviderProps){
     const [ cart, setCart ] = useState<ICartItem[]>([])
-    const [openCart, setOpenCart] = useState(false)
+    const [openCart, setOpenCart] = useState('false')
 
     function updateCart({id, name, photo, price}: UpdateCartProps) {
         const hasProduct = cart.find( cartItem => cartItem.id === id)
